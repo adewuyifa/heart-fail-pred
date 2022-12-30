@@ -1,0 +1,1 @@
+web: gunicorn heart_pred_dash:server
