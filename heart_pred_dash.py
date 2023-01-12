@@ -1,4 +1,4 @@
-import pickle
+import joblib
 
 import dash
 import dash_bootstrap_components as dbc
@@ -270,8 +270,8 @@ def make_prediction(n_clicks, data):
             0: "Patient is not at risk of heart failure",
             1: "Patient is at risk of heart failure"
         }
-        with open("model_heart_pred.pkl", "rb") as f:
-            model = pickle.load(f)
+        
+        model = joblib.load('finalmodel.pkl')
         prediction = model.predict(df)
 
         if prediction > 0:
